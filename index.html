@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>District Studio - El nuevo epicentro creativo de Monterrey</title>
+
+<meta name="description" content="District Studio: estudio de foto, video, podcast, eventos y coworking en Monterrey. Reservas por hora, dia o membresia." />
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+
+<link rel="icon" type="image/png" href="assets/logo/isotipo-black.png" media="(prefers-color-scheme: light)" />
+<link rel="icon" type="image/png" href="assets/logo/isotipo-white.png" media="(prefers-color-scheme: dark)" />
+<link rel="apple-touch-icon" href="assets/logo/isotipo-black.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="District Studio" />
+<meta property="og:description" content="El nuevo epicentro creativo mas completo de Monterrey. Foto, video, podcast, eventos, coworking." />
+<meta property="og:url" content="https://districtstudio.mx/" />
+<meta property="og:image" content="assets/images/og/og-default.png" />
+<meta property="og:locale" content="es_MX" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="District Studio" />
+<meta name="twitter:description" content="El nuevo epicentro creativo mas completo de Monterrey." />
+<meta name="twitter:image" content="assets/images/og/og-default.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "District Studio",
+  "description": "Estudio creativo en Monterrey para foto, video, podcast, eventos y coworking.",
+  "url": "https://districtstudio.mx/",
+  "telephone": "+528120743501",
+  "email": "contacto@fcagency.mx",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Monterrey",
+    "addressRegion": "NL",
+    "addressCountry": "MX"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "FC Agency"
+  }
+}
+</script>
+
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('district-theme');
+    var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'dark' || (!saved && sysDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Nav ================================================== -->
+<header class="nav" role="banner">
+  <a class="nav__brand" href="#top" aria-label="District Studio">
+    <img class="nav__iso" src="assets/logo/isotipo-white.png" alt="" />
+    <span class="nav__wordmark">DISTRICT STUDIO</span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primaria">
+    <a href="#espacios">Espacios</a>
+    <a href="#tarifas">Tarifas</a>
+    <a href="#membresias">Membresias</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="nav__actions">
+    <button type="button" class="nav__toggle" data-theme-toggle aria-label="Cambiar tema">
+      <span data-theme-label>Dark</span>
+    </button>
+    <button type="button" class="nav__menu" data-menu-open aria-label="Abrir menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu ========================================== -->
+<div class="menu-overlay" data-menu-overlay aria-hidden="true">
+  <button type="button" class="menu-overlay__close" data-menu-close aria-label="Cerrar menu">Close</button>
+  <nav class="menu-overlay__links" aria-label="Menu principal">
+    <a href="#espacios" data-menu-link>Espacios</a>
+    <a href="#tarifas" data-menu-link>Tarifas</a>
+    <a href="#membresias" data-menu-link>Membresias</a>
+    <a href="#reservar" data-menu-link>Como reservar</a>
+    <a href="#contacto" data-menu-link>Contacto</a>
+  </nav>
+  <div class="menu-overlay__meta">
+    <span>MTY - MX</span>
+    <a href="mailto:contacto@fcagency.mx">contacto@fcagency.mx</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- [1] HERO =============================================== -->
+<section class="hero force-dark">
+  <img class="hero__iso" src="assets/logo/isotipo-white.png" alt="" data-parallax="-0.12" />
+  <div class="hero__inner">
+    <p class="label label--invert" data-reveal>[ Monterrey / MX - 2026 ]</p>
+    <h1 class="hero__title" data-reveal>DISTRICT<br/>STUDIO</h1>
+    <p class="hero__tagline" data-reveal>El nuevo epicentro creativo mas completo de Monterrey.</p>
+    <div class="hero__meta" data-reveal>
+      <a href="https://wa.me/528120743501?text=Hola%20District%20Studio" class="btn btn--ghost" target="_blank" rel="noopener">Reserva por WhatsApp</a>
+      <a href="#espacios" class="btn btn--text">Conoce los espacios -&gt;</a>
+    </div>
+  </div>
+  <div class="hero__footer">
+    <span>Foto - Video - Podcast - Eventos - Coworking</span>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- [2] SOBRE ============================================ -->
+<section class="section section--about" id="sobre">
+  <div class="section__head">
+    <p class="label" data-reveal>[ 01 / Quienes somos ]</p>
+    <h2 class="section__title" data-reveal>Un solo lugar<br/>para crear todo.</h2>
+  </div>
+  <div class="section__body">
+    <p class="lede" data-reveal>
+      District Studio es el estudio propio de FC Agency: infraestructura fisica completa para produccion de foto, video, podcast, eventos y coworking, disponible por hora, dia o membresia.
+    </p>
+    <p class="body" data-reveal>
+      Un espacio pensado para creadores, marcas y equipos que necesitan un entorno profesional sin armarlo desde cero. Entras, produces, te vas.
+    </p>
+  </div>
+  <ul class="stats" data-reveal>
+    <li><span class="stats__n">~700</span><span class="stats__l">m2 de planta</span></li>
+    <li><span class="stats__n">5</span><span class="stats__l">espacios</span></li>
+    <li><span class="stats__n">MTY</span><span class="stats__l">Monterrey, NL</span></li>
+    <li><span class="stats__n">24/7</span><span class="stats__l">reservas por WhatsApp</span></li>
+  </ul>
+</section>
+
+<!-- [3] ESPACIOS ========================================= -->
+<section class="section section--spaces force-dark" id="espacios">
+  <div class="section__head">
+    <p class="label label--invert" data-reveal>[ 02 / Espacios ]</p>
+    <h2 class="section__title" data-reveal>Cinco ambientes,<br/>un mismo domicilio.</h2>
+  </div>
+
+  <div class="spaces">
+    <article class="space" data-reveal data-cursor="Reservar">
+      <span class="space__n">01</span>
+      <h3 class="space__title">Estudio Foto &amp; Video</h3>
+      <p class="space__desc">Ciclorama, luz controlada, equipo incluido. Listo para produccion editorial, e-commerce y video content.</p>
+      <span class="space__tag">Desde $800 / hr</span>
+    </article>
+
+    <article class="space" data-reveal data-cursor="Reservar">
+      <span class="space__n">02</span>
+      <h3 class="space__title">Estudio de Podcast</h3>
+      <p class="space__desc">Insonorizado, multi-camara, set listo. Graba podcast, entrevistas y shows con calidad broadcast.</p>
+      <span class="space__tag">Desde $900 / hr</span>
+    </article>
+
+    <article class="space" data-reveal data-cursor="Reservar">
+      <span class="space__n">03</span>
+      <h3 class="space__title">Espacio para Eventos</h3>
+      <p class="space__desc">Layout flexible para lanzamientos, shootings grandes, workshops y activaciones de marca.</p>
+      <span class="space__tag">Cotizacion por evento</span>
+    </article>
+
+    <article class="space" data-reveal data-cursor="Reservar">
+      <span class="space__n">04</span>
+      <h3 class="space__title">Coworking &amp; Day Pass</h3>
+      <p class="space__desc">Oficinas compartidas, internet, cafe. Ideal para equipos creativos que necesitan base en MTY.</p>
+      <span class="space__tag">Desde $300 / dia</span>
+    </article>
+  </div>
+</section>
+
+<!-- [4] TARIFAS ========================================== -->
+<section class="section section--rates" id="tarifas">
+  <div class="section__head">
+    <p class="label" data-reveal>[ 03 / Tarifas ]</p>
+    <h2 class="section__title" data-reveal>Claras,<br/>publicas, sin letra chica.</h2>
+  </div>
+
+  <div class="rates">
+    <div class="rate" data-reveal>
+      <h3 class="rate__title">Foto &amp; Video</h3>
+      <ul>
+        <li><span>1 hora</span><span>$800</span></li>
+        <li><span>1/2 dia (4 hrs)</span><span>$2,800</span></li>
+        <li><span>Dia completo (8 hrs)</span><span>$4,800</span></li>
+      </ul>
+    </div>
+
+    <div class="rate" data-reveal>
+      <h3 class="rate__title">Podcast</h3>
+      <ul>
+        <li><span>Por hora</span><span>$900</span></li>
+        <li><span>Dia completo</span><span>$5,200</span></li>
+      </ul>
+    </div>
+
+    <div class="rate" data-reveal>
+      <h3 class="rate__title">Eventos</h3>
+      <ul>
+        <li><span>S - hasta 20 pax</span><span>Cotizacion</span></li>
+        <li><span>M - hasta 50 pax</span><span>Cotizacion</span></li>
+        <li><span>L - 50+ pax</span><span>Cotizacion</span></li>
+      </ul>
+      <p class="rate__foot">Escribenos para propuesta a la medida.</p>
+    </div>
+  </div>
+
+  <p class="rates__foot" data-reveal>Precios en MXN. No incluyen IVA. Anticipo requerido para reservar.</p>
+</section>
+
+<!-- [5] MEMBRESIAS ======================================= -->
+<section class="section section--members force-dark" id="membresias">
+  <div class="section__head">
+    <p class="label label--invert" data-reveal>[ 04 / Membresias ]</p>
+    <h2 class="section__title" data-reveal>Acceso recurrente,<br/>precio mejor.</h2>
+  </div>
+
+  <h3 class="sub" data-reveal>Estudio</h3>
+  <div class="plans">
+    <article class="plan" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Starter</h4>
+      <p class="plan__hours">4 hrs / mes</p>
+      <p class="plan__price">$2,400</p>
+      <ul class="plan__feat">
+        <li>Acceso a foto o podcast</li>
+        <li>Reserva con 24h</li>
+      </ul>
+    </article>
+    <article class="plan" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Activo</h4>
+      <p class="plan__hours">8 hrs / mes</p>
+      <p class="plan__price">$4,000</p>
+      <ul class="plan__feat">
+        <li>Acceso a foto, video o podcast</li>
+        <li>Reserva prioritaria</li>
+      </ul>
+    </article>
+    <article class="plan plan--hl" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Pro</h4>
+      <p class="plan__hours">16 hrs / mes</p>
+      <p class="plan__price">$7,200</p>
+      <ul class="plan__feat">
+        <li>Todos los estudios</li>
+        <li>Booking preferente</li>
+        <li>Descuento en rentas extra</li>
+      </ul>
+    </article>
+    <article class="plan" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Equipo</h4>
+      <p class="plan__hours">20 hrs / mes</p>
+      <p class="plan__price">$8,000</p>
+      <ul class="plan__feat">
+        <li>Compartible entre miembros</li>
+        <li>Facturacion mensual</li>
+      </ul>
+    </article>
+  </div>
+
+  <h3 class="sub" data-reveal>Coworking</h3>
+  <div class="plans plans--cw">
+    <article class="plan" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Pack 4</h4>
+      <p class="plan__hours">4 dias / mes</p>
+      <p class="plan__price">$1,200</p>
+    </article>
+    <article class="plan" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Pack 8</h4>
+      <p class="plan__hours">8 dias / mes</p>
+      <p class="plan__price">$2,160</p>
+    </article>
+    <article class="plan" data-reveal data-cursor="Reservar">
+      <h4 class="plan__name">Pack 15</h4>
+      <p class="plan__hours">15 dias / mes</p>
+      <p class="plan__price">$3,600</p>
+    </article>
+  </div>
+</section>
+
+<!-- [6] RESERVAR ========================================= -->
+<section class="section section--book" id="reservar">
+  <div class="section__head">
+    <p class="label" data-reveal>[ 05 / Como reservar ]</p>
+    <h2 class="section__title" data-reveal>Cuatro pasos,<br/>cero fricciones.</h2>
+  </div>
+
+  <ol class="steps">
+    <li data-reveal><span class="steps__n">01</span><p>Elige el espacio y el horario que necesitas.</p></li>
+    <li data-reveal><span class="steps__n">02</span><p>Confirmamos disponibilidad por WhatsApp en el dia.</p></li>
+    <li data-reveal><span class="steps__n">03</span><p>Apartas con anticipo via transferencia o link de pago.</p></li>
+    <li data-reveal><span class="steps__n">04</span><p>Te recibimos en District el dia acordado.</p></li>
+  </ol>
+
+  <div class="book__cta" data-reveal>
+    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20quiero%20reservar" class="btn btn--solid" target="_blank" rel="noopener">Reservar ahora</a>
+    <a href="mailto:contacto@fcagency.mx" class="btn btn--text">o escribenos por email</a>
+  </div>
+</section>
+
+<!-- [7] FOOTER =========================================== -->
+<footer class="footer force-dark" id="contacto">
+  <div class="footer__top">
+    <p class="label label--invert">[ Contacto ]</p>
+    <h2 class="footer__title">Nos vemos<br/>en District.</h2>
+  </div>
+
+  <div class="footer__grid">
+    <div class="footer__col">
+      <p class="label label--invert">Ubicacion</p>
+      <p>Monterrey, NL - MX</p>
+      <p class="muted">Direccion exacta al confirmar reserva.</p>
+    </div>
+    <div class="footer__col">
+      <p class="label label--invert">Contacto</p>
+      <p><a href="https://wa.me/528120743501" target="_blank" rel="noopener">+52 81 2074 3501</a></p>
+      <p><a href="mailto:contacto@fcagency.mx">contacto@fcagency.mx</a></p>
+    </div>
+    <div class="footer__col">
+      <p class="label label--invert">Redes</p>
+      <p><a href="https://instagram.com/districtstudio.mx" target="_blank" rel="noopener">@districtstudio.mx</a></p>
+    </div>
+  </div>
+
+  <img class="footer__iso" src="assets/logo/isotipo-white.png" alt="" aria-hidden="true" />
+
+  <div class="footer__bottom">
+    <span>(c) 2026 District Studio</span>
+    <span>Operado por FC Agency</span>
+    <span>Sitio web por sopadeletras&reg;</span>
+  </div>
+</footer>
+
+</main>
+
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="scroll.js"></script>
+
+</body>
+</html>
