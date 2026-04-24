@@ -7,24 +7,29 @@
 (function initTheme() {
   const root = document.documentElement;
   const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => {
+    if (root.classList.contains('dark')) return true;
+    if (root.classList.contains('light')) return false;
+    return sysDark.matches;
+  };
   const setLabel = () => {
-    const text = root.classList.contains('dark') ? 'Light' : 'Dark';
+    const text = isDark() ? 'Light' : 'Dark';
     document.querySelectorAll('[data-theme-label]').forEach((el) => { el.textContent = text; });
   };
   setLabel();
 
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const next = root.classList.contains('dark') ? 'light' : 'dark';
-      root.classList.toggle('dark', next === 'dark');
+      const next = isDark() ? 'light' : 'dark';
+      root.classList.remove('dark', 'light');
+      root.classList.add(next);
       try { localStorage.setItem('district-theme', next); } catch (e) {}
       setLabel();
     });
   });
 
-  sysDark.addEventListener('change', (e) => {
+  sysDark.addEventListener('change', () => {
     try { if (localStorage.getItem('district-theme')) return; } catch (err) {}
-    root.classList.toggle('dark', e.matches);
     setLabel();
   });
 })();

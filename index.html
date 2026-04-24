@@ -72,10 +72,18 @@
   "paymentAccepted": "Transferencia, Tarjeta",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Nicolás Bravo 729A, Col. María Luisa, Centro",
     "addressLocality": "Monterrey",
     "addressRegion": "Nuevo León",
+    "postalCode": "64049",
     "addressCountry": "MX"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.6714,
+    "longitude": -100.3091
+  },
+  "hasMap": "https://maps.google.com/?q=Nicol%C3%A1s+Bravo+729A%2C+Mar%C3%ADa+Luisa%2C+64049+Monterrey%2C+N.L.",
   "areaServed": {
     "@type": "City",
     "name": "Monterrey"
@@ -149,7 +157,7 @@
       "name": "¿Dónde está ubicado District Studio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En Monterrey, Nuevo León. La dirección exacta se comparte al confirmar la reserva."
+        "text": "Nicolás Bravo 729A, Col. María Luisa, Centro, 64049 Monterrey, Nuevo León."
       }
     },
     {
@@ -179,10 +187,9 @@
 (function () {
   try {
     var saved = localStorage.getItem('district-theme');
-    var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (saved === 'dark' || (!saved && sysDark)) {
-      document.documentElement.classList.add('dark');
-    }
+    if (saved === 'dark') document.documentElement.classList.add('dark');
+    else if (saved === 'light') document.documentElement.classList.add('light');
+    // If no saved value, CSS @media (prefers-color-scheme) takes over
   } catch (e) {}
 })();
 </script>
@@ -510,7 +517,7 @@
     </details>
     <details data-reveal>
       <summary>¿Dónde están ubicados?</summary>
-      <p>En Monterrey, Nuevo León. Compartimos la dirección exacta al confirmar la reserva por seguridad operativa.</p>
+      <p>Nicolás Bravo 729A, Col. María Luisa, Centro, 64049 Monterrey, Nuevo León. <a href="https://maps.google.com/?q=Nicol%C3%A1s+Bravo+729A%2C+Mar%C3%ADa+Luisa%2C+64049+Monterrey%2C+N.L." target="_blank" rel="noopener">Ver en Google Maps →</a></p>
     </details>
   </div>
 </section>
@@ -525,8 +532,8 @@
   <div class="footer__grid">
     <div class="footer__col">
       <p class="label label--invert">Ubicación</p>
-      <p>Monterrey, NL — MX</p>
-      <p class="muted">Dirección exacta al confirmar reserva.</p>
+      <p>Nicolás Bravo 729A<br/>Col. María Luisa, Centro<br/>64049 Monterrey, N.L.</p>
+      <p><a href="https://maps.google.com/?q=Nicol%C3%A1s+Bravo+729A%2C+Mar%C3%ADa+Luisa%2C+64049+Monterrey%2C+N.L." target="_blank" rel="noopener">Ver en Google Maps →</a></p>
     </div>
     <div class="footer__col">
       <p class="label label--invert">Contacto</p>

@@ -43,9 +43,22 @@
   --dur: 720ms;
 }
 
+/* System preference fallback: if JS doesn't set .light/.dark, follow OS */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg: var(--black);
+    --fg: var(--white);
+  }
+}
+
+/* Explicit overrides (from JS after user click, or init if saved in localStorage) */
 :root.dark {
   --bg: var(--black);
   --fg: var(--white);
+}
+:root.light {
+  --bg: var(--white);
+  --fg: var(--black);
 }
 
 /* -- Reset -------------------------------------------------- */
