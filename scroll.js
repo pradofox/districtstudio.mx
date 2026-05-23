@@ -3,36 +3,7 @@
    Theme toggle + Lenis + parallax + cursor-follow + reveal
    ============================================================ */
 
-// -- Theme system ------------------------------------------
-(function initTheme() {
-  const root = document.documentElement;
-  const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const isDark = () => {
-    if (root.classList.contains('dark')) return true;
-    if (root.classList.contains('light')) return false;
-    return sysDark.matches;
-  };
-  const setLabel = () => {
-    const text = isDark() ? 'Light' : 'Dark';
-    document.querySelectorAll('[data-theme-label]').forEach((el) => { el.textContent = text; });
-  };
-  setLabel();
-
-  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const next = isDark() ? 'light' : 'dark';
-      root.classList.remove('dark', 'light');
-      root.classList.add(next);
-      try { localStorage.setItem('district-theme', next); } catch (e) {}
-      setLabel();
-    });
-  });
-
-  sysDark.addEventListener('change', () => {
-    try { if (localStorage.getItem('district-theme')) return; } catch (err) {}
-    setLabel();
-  });
-})();
+// Theme system removed - now driven entirely by CSS @media (prefers-color-scheme).
 
 // -- Mobile menu -------------------------------------------
 (function initMenu() {

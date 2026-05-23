@@ -165,16 +165,6 @@ html.lenis { height: auto; }
   align-items: center;
   gap: 16px;
 }
-.nav__theme {
-  font-family: var(--font-body);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 2px;
-  opacity: 0.55;
-  transition: opacity 200ms var(--ease);
-}
-.nav__theme:hover { opacity: 1; }
 .nav__menu {
   display: none;
   width: 28px;
