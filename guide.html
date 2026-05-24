@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Design Guide — District Studio</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* Estilos solo para la guía */
+  .guide { padding: 64px 32px 120px; max-width: 1400px; margin: 0 auto; }
+  .guide h1 { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h2); text-transform: uppercase; letter-spacing: -0.015em; line-height: var(--lh-tight); margin: 0 0 8px; }
+  .guide__sub { font-family: var(--font-body); font-weight: 300; font-size: var(--text-body); opacity: 0.7; margin: 0 0 64px; }
+  .guide section { margin: 0 0 96px; }
+  .guide section > h2 {
+    font-family: var(--font-display); font-weight: 900; font-size: var(--text-h3);
+    text-transform: uppercase; letter-spacing: -0.015em; line-height: var(--lh-tight);
+    margin: 0 0 8px; padding: 0 0 16px; border-bottom: 1px solid #000;
+  }
+  .guide section > p.lead { font-family: var(--font-body); font-weight: 300; font-size: var(--text-body); opacity: 0.7; max-width: 60ch; margin: 16px 0 32px; }
+  .guide h3.eh { font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 24px 0 12px; opacity: 0.6; }
+
+  /* Tablas */
+  .tbl { width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 14px; font-weight: 300; }
+  .tbl th, .tbl td { text-align: left; padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,0.08); vertical-align: middle; }
+  .tbl th { font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; background: rgba(0,0,0,0.02); }
+  .tbl code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: rgba(0,0,0,0.06); padding: 2px 8px; border-radius: 4px; }
+
+  /* Color swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .sw { border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+  .sw__chip { aspect-ratio: 16 / 10; }
+  .sw__info { padding: 12px 14px; font-family: var(--font-body); font-size: 13px; font-weight: 300; }
+  .sw__info strong { display: block; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+  .sw__info code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; opacity: 0.7; }
+
+  /* Specimens */
+  .spec { padding: 24px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; margin: 0 0 16px; }
+  .spec__meta { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 12px; }
+  .spec__demo { margin: 0; }
+
+  /* Specimen text overrides para visualizar exactamente cada token */
+  .demo-hero { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h2); line-height: var(--lh-tight); letter-spacing: -0.015em; text-transform: uppercase; margin: 0; }
+  .demo-section { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h3); line-height: var(--lh-tight); letter-spacing: -0.015em; text-transform: uppercase; margin: 0; }
+  .demo-card { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h4); line-height: var(--lh-tight); letter-spacing: 0.02em; text-transform: uppercase; margin: 0; }
+  .demo-lede { font-family: var(--font-body); font-weight: 300; font-size: var(--text-lede); line-height: var(--lh-snug); margin: 0; max-width: 42ch; }
+  .demo-body { font-family: var(--font-body); font-weight: 300; font-size: var(--text-body); line-height: var(--lh-base); margin: 0; max-width: 52ch; }
+  .demo-small { font-family: var(--font-body); font-weight: 300; font-size: var(--text-small); line-height: var(--lh-relaxed); margin: 0; }
+  .demo-label { font-family: var(--font-body); font-weight: 400; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin: 0; }
+
+  /* Botones demo */
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+  /* Spacing visualizer */
+  .spacing { display: flex; flex-direction: column; gap: 12px; }
+  .spacing__row { display: grid; grid-template-columns: 140px 1fr; align-items: center; gap: 16px; font-family: var(--font-body); font-size: 13px; }
+  .spacing__bar { background: #000; height: 16px; }
+
+  /* Anchors / TOC */
+  .toc { position: sticky; top: 24px; }
+  .toc__inner { font-family: var(--font-body); font-size: 13px; font-weight: 300; }
+  .toc__inner a { display: block; padding: 6px 0; opacity: 0.7; }
+  .toc__inner a:hover { opacity: 1; }
+  .layout { display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .toc { position: static; } }
+
+  /* Notas inline */
+  .note { background: #fffbe6; border-left: 3px solid #f5c518; padding: 12px 16px; font-family: var(--font-body); font-size: 13px; font-weight: 300; margin: 12px 0; border-radius: 4px; }
+
+  /* Override grid de planes para que se vean en la guía */
+  .demo-plan {
+    border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 28px;
+    display: flex; flex-direction: column; gap: 16px; max-width: 280px;
+  }
+  .demo-plan h4 { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h4); text-transform: uppercase; margin: 0; letter-spacing: 0.02em; }
+  .demo-plan p { font-family: var(--font-body); font-weight: 300; font-size: 14px; margin: 0; }
+  .demo-plan .price { font-family: var(--font-display); font-weight: 900; font-size: 32px; margin: 0; }
+  .demo-plan ul { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 300; }
+  .demo-plan li { padding-left: 18px; position: relative; }
+  .demo-plan li::before { content: '✓'; position: absolute; left: 0; opacity: 0.5; }
+
+  /* Feature card demo */
+  .demo-feat { max-width: 260px; display: flex; flex-direction: column; gap: 12px; }
+  .demo-feat__media { aspect-ratio: 1/1; background: #ddd; }
+  .demo-feat h4 { font-family: var(--font-display); font-weight: 900; font-size: var(--text-h4); text-transform: uppercase; margin: 0; }
+  .demo-feat ul { font-size: 14px; font-weight: 300; }
+  .demo-feat li::before { content: '✓'; opacity: 0.6; margin-right: 6px; }
+
+  /* Notas zone */
+  .notes-box { background: #f5f5f5; border-left: 4px solid #000; padding: 20px 24px; margin: 24px 0 0; border-radius: 4px; }
+  .notes-box h4 { margin: 0 0 8px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+  .notes-box p { font-family: var(--font-body); font-size: 14px; font-weight: 300; line-height: 1.5; margin: 6px 0; }
+
+  /* Status badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .badge--ok { background: #e6f4ea; color: #137333; }
+  .badge--wip { background: #fff4e5; color: #b06000; }
+  .badge--todo { background: #fde7e9; color: #b3261e; }
+</style>
+</head>
+<body class="force-light">
+
+<header class="nav" role="banner">
+  <a class="nav__brand" href="/" aria-label="District Studio">
+    <span class="nav__wordmark">DISTRICT STUDIO — DESIGN GUIDE</span>
+  </a>
+</header>
+
+<main class="guide">
+
+  <h1>Design Guide</h1>
+  <p class="guide__sub">Sistema de diseño visual de districtstudio.mx — todos los tokens, componentes y reglas. Esta guía es el source of truth. Cualquier cambio futuro de estilo debe partir de aquí.</p>
+
+  <div class="layout">
+
+    <aside class="toc">
+      <div class="toc__inner">
+        <a href="#colores">01 · Colores</a>
+        <a href="#tipografia">02 · Tipografía</a>
+        <a href="#escala">03 · Escala de texto</a>
+        <a href="#espaciado">04 · Espaciado y grid</a>
+        <a href="#botones">05 · Botones</a>
+        <a href="#secciones">06 · Secciones</a>
+        <a href="#componentes">07 · Componentes</a>
+        <a href="#movimientos">08 · Movimientos</a>
+        <a href="#notas">09 · Notas</a>
+      </div>
+    </aside>
+
+    <div>
+
+      <!-- 01 Colores -->
+      <section id="colores">
+        <h2>01 · Colores</h2>
+        <p class="lead">Paleta minimal. Solo 4 colores base + dos modos (light / dark) que se aplican con <code>.force-light</code> y <code>.force-dark</code> por sección.</p>
+
+        <div class="swatches">
+          <div class="sw">
+            <div class="sw__chip" style="background: #1A1A1A;"></div>
+            <div class="sw__info"><strong>Black (soft)</strong>#1A1A1A · <code>var(--black)</code> = <code>var(--gray)</code></div>
+          </div>
+          <div class="sw">
+            <div class="sw__chip" style="background: #FFF; border-bottom: 1px solid rgba(0,0,0,0.1);"></div>
+            <div class="sw__info"><strong>White</strong>#FFFFFF · <code>var(--white)</code></div>
+          </div>
+          <div class="sw">
+            <div class="sw__chip" style="background: #888;"></div>
+            <div class="sw__info"><strong>Muted</strong>#888888 · <code>var(--muted)</code></div>
+          </div>
+        </div>
+
+        <h3 class="eh">Uso</h3>
+        <table class="tbl">
+          <thead><tr><th>Token</th><th>Light mode</th><th>Dark mode</th></tr></thead>
+          <tbody>
+            <tr><td><code>--bg</code> · fondo de sección</td><td>White</td><td>Black</td></tr>
+            <tr><td><code>--fg</code> · texto principal</td><td>Black</td><td>White</td></tr>
+            <tr><td><code>--muted</code> · texto secundario</td><td>#888 a 60-70% opacity</td><td>White a 60% opacity</td></tr>
+          </tbody>
+        </table>
+
+        <div class="notes-box">
+          <h4>Notas Lili</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+      <!-- 02 Tipografía -->
+      <section id="tipografia">
+        <h2>02 · Tipografía</h2>
+        <p class="lead">Dos familias. Aileron Heavy para títulos, Garet Book para cuerpo. Pesos limitados y consistentes.</p>
+
+        <table class="tbl">
+          <thead><tr><th>Familia</th><th>Uso</th><th>Pesos disponibles</th><th>Token</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Aileron</strong></td><td>Títulos, números grandes, etiquetas display</td><td>900 (Heavy)</td><td><code>--font-display</code></td></tr>
+            <tr><td><strong>Garet</strong></td><td>Cuerpo, listas, descripciones, navegación</td><td>300 (sintético), 400 (Book), 700 (etiquetas)</td><td><code>--font-body</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="eh">Regla de pesos</h3>
+        <p style="font-family: var(--font-body); font-size: 14px; font-weight: 300; max-width: 65ch;">
+          Todo el cuerpo (párrafos, listas, descripciones) usa <strong>peso 300 (thin)</strong>. Etiquetas y nav usan 400 o 700. Títulos siempre 900.
+        </p>
+      </section>
+
+      <!-- 03 Escala -->
+      <section id="escala">
+        <h2>03 · Escala de texto</h2>
+        <p class="lead">Estos son los únicos estilos de texto que se usan en el sitio. Cada bloque muestra el texto real con el estilo real (no el token teórico). Los tamaños fluyen con <code>clamp()</code> según el ancho de pantalla.</p>
+
+        <div class="spec">
+          <p class="spec__meta">Hero Title · clase <code>.section__title</code> en page-hero · <code>var(--text-h2)</code> · clamp(32px → 72px) · weight 900 · line-height 0.95</p>
+          <h1 class="spec__demo demo-hero">El estudio más completo de Monterrey</h1>
+        </div>
+
+        <div class="spec">
+          <p class="spec__meta">Section Title · clase <code>.section__h3</code> · <code>var(--text-h3)</code> · clamp(24px → 54px) · weight 900 · line-height 0.95</p>
+          <h3 class="spec__demo demo-section">Todo para tu producción</h3>
+        </div>
+
+        <div class="spec">
+          <p class="spec__meta">Card Title · clase <code>.plan__name</code>, <code>.feature__title</code>, <code>.benefit__title</code> · <code>var(--text-h4)</code> · clamp(18px → 22px) · weight 900 · line-height 0.95</p>
+          <h4 class="spec__demo demo-card">Pack Individual</h4>
+        </div>
+
+        <div class="spec">
+          <p class="spec__meta">Lede · clase <code>.lede</code> · <code>var(--text-lede)</code> · clamp(18px → 22px) · weight 300 · line-height 1.35 · max 42ch</p>
+          <p class="spec__demo demo-lede">Diseñamos un espacio ideal para diseñadores, fotógrafos, escritores o curadores que buscan un espacio base.</p>
+        </div>
+
+        <div class="spec">
+          <p class="spec__meta">Body · clase <code>.body</code> · <code>var(--text-body)</code> · 16px fijo · weight 300 · line-height 1.55 · max 52ch</p>
+          <p class="spec__demo demo-body">Un estudio totalmente equipado con infinito blanco, cicloramas de colores y equipo de iluminación. Acompañado siempre por asistencia operativa en piso para garantizar el éxito y la comodidad de tu producción.</p>
+        </div>
+
+        <div class="spec">
+          <p class="spec__meta">Small · <code>var(--text-small)</code> · 14px fijo · weight 300 · line-height 1.5 · usado en listas de cards y notas al pie</p>
+          <p class="spec__demo demo-small">Tarifas y condiciones compartidas al aplicar. Precios en MXN. No incluyen IVA. Anticipo requerido para reservar.</p>
+        </div>
+
+        <div class="spec">
+          <p class="spec__meta">Label · clase <code>.label</code> · 12px fijo · weight 400 · letter-spacing 0.08em · uppercase · color muted</p>
+          <p class="spec__demo demo-label">[ Estudio de Foto y Video ]</p>
+        </div>
+
+        <h3 class="eh">Line heights</h3>
+        <table class="tbl">
+          <thead><tr><th>Token</th><th>Valor</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>--lh-tight</code></td><td>0.95</td><td>Títulos H1, H2, H3, H4</td></tr>
+            <tr><td><code>--lh-snug</code></td><td>1.35</td><td>Subtítulos cortos</td></tr>
+            <tr><td><code>--lh-base</code></td><td>1.55</td><td>Body, párrafos normales</td></tr>
+            <tr><td><code>--lh-relaxed</code></td><td>1.5</td><td>Lede, small, listas</td></tr>
+          </tbody>
+        </table>
+
+        <div class="notes-box">
+          <h4>Notas Lili</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+      <!-- 04 Espaciado -->
+      <section id="espaciado">
+        <h2>04 · Espaciado y grid</h2>
+        <p class="lead">Dos sistemas: <strong>grid horizontal</strong> (ancho máx, padding lateral, gap entre columnas) y <strong>stack vertical</strong> (espacio entre filas / bloques apilados).</p>
+
+        <h3 class="eh">Grid horizontal</h3>
+        <table class="tbl">
+          <thead><tr><th>Token</th><th>Valor</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>--grid-max</code></td><td>1400px</td><td>Ancho máximo de contenido</td></tr>
+            <tr><td><code>--pad-x</code></td><td>32px</td><td>Padding lateral en todas las secciones</td></tr>
+            <tr><td><code>--pad-y</code></td><td>120px</td><td>Padding vertical default de <code>.section</code></td></tr>
+            <tr><td><code>--gap</code></td><td>48px</td><td>Gap horizontal entre columnas</td></tr>
+            <tr><td><code>--col</code></td><td>260px</td><td>Ancho base de columna para min/max</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="eh">Stack vertical (gap entre filas / bloques)</h3>
+        <table class="tbl">
+          <thead><tr><th>Token</th><th>Valor</th><th>Uso típico</th></tr></thead>
+          <tbody>
+            <tr><td><code>--stack-xs</code></td><td>8px</td><td>Entre items de lista, micro-elementos</td></tr>
+            <tr><td><code>--stack-sm</code></td><td>16px</td><td>Dentro de cards, entre subelementos</td></tr>
+            <tr><td><code>--stack-md</code></td><td>24px</td><td>label → título · título → body</td></tr>
+            <tr><td><code>--stack-lg</code></td><td>48px</td><td>Entre grupos relacionados</td></tr>
+            <tr><td><code>--stack-xl</code></td><td>80px</td><td>Entre bloques mayores dentro de una sección</td></tr>
+            <tr><td><code>--stack-2xl</code></td><td>120px</td><td>Entre secciones completas (= <code>--pad-y</code>)</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="eh">Visualizador (a escala)</h3>
+        <div class="spacing">
+          <div class="spacing__row"><span><code>--stack-xs</code> 8px</span><div class="spacing__bar" style="width: 8px;"></div></div>
+          <div class="spacing__row"><span><code>--stack-sm</code> 16px</span><div class="spacing__bar" style="width: 16px;"></div></div>
+          <div class="spacing__row"><span><code>--stack-md</code> 24px</span><div class="spacing__bar" style="width: 24px;"></div></div>
+          <div class="spacing__row"><span><code>--gap</code> 48px (= stack-lg)</span><div class="spacing__bar" style="width: 48px;"></div></div>
+          <div class="spacing__row"><span><code>--stack-xl</code> 80px</span><div class="spacing__bar" style="width: 80px;"></div></div>
+          <div class="spacing__row"><span><code>--stack-2xl</code> / <code>--pad-y</code> 120px</span><div class="spacing__bar" style="width: 120px;"></div></div>
+        </div>
+
+        <h3 class="eh">Demo: stack vertical real</h3>
+        <div style="border: 1px dashed rgba(0,0,0,0.2); padding: 32px;">
+          <p class="demo-label" style="margin: 0;">[ Etiqueta ]</p>
+          <div style="height: 24px; background: rgba(255,200,0,0.2);" title="--stack-md 24px"></div>
+          <h3 class="demo-section">Título de sección</h3>
+          <div style="height: 24px; background: rgba(255,200,0,0.2);" title="--stack-md 24px"></div>
+          <p class="demo-body">Cuerpo de texto que describe la sección. Entre etiqueta y título van 24px, entre título y body van 24px también.</p>
+          <div style="height: 48px; background: rgba(0,150,255,0.15);" title="--stack-lg 48px"></div>
+          <p class="demo-small" style="font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5;">Subgrupo siguiente · 48px arriba</p>
+        </div>
+
+        <div class="notes-box">
+          <h4>Notas Lili</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+      <!-- 05 Botones -->
+      <section id="botones">
+        <h2>05 · Botones</h2>
+        <p class="lead">Tres variantes: ghost (outline), solid (relleno), text (link). Todos con border-radius pill (999px), uppercase, letter-spacing 0.08em.</p>
+
+        <h3 class="eh">Variantes (sobre fondo claro)</h3>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="#">Reservar estudio</a>
+          <a class="btn btn--solid" href="#">Reservar estudio</a>
+          <a class="btn btn--text" href="#">o escríbenos por email</a>
+        </div>
+
+        <h3 class="eh">Sobre fondo oscuro</h3>
+        <div class="btn-row force-dark" style="background: #000; padding: 24px; border-radius: 8px;">
+          <a class="btn btn--ghost" href="#" style="color: #fff;">Aplica al co-work</a>
+          <a class="btn btn--solid" href="#">Aplica al co-work</a>
+          <a class="btn btn--text" href="#" style="color: #fff;">o escríbenos por email</a>
+        </div>
+
+        <h3 class="eh">Specs</h3>
+        <table class="tbl">
+          <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>padding</td><td>14px 22px</td></tr>
+            <tr><td>font-size</td><td>13px</td></tr>
+            <tr><td>letter-spacing</td><td>0.08em</td></tr>
+            <tr><td>text-transform</td><td>uppercase</td></tr>
+            <tr><td>border-radius</td><td>999px (pill)</td></tr>
+            <tr><td>ghost border</td><td>1px solid currentColor</td></tr>
+            <tr><td>hover</td><td>opacity 0.85 + translateY(-1px) o invert</td></tr>
+          </tbody>
+        </table>
+
+        <div class="notes-box">
+          <h4>Notas Lili</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+      <!-- 06 Secciones -->
+      <section id="secciones">
+        <h2>06 · Secciones</h2>
+        <p class="lead">Las secciones son los bloques verticales con padding-y 120px. Tienen modificadores de tema (<code>.force-light</code> / <code>.force-dark</code>) y de contenido.</p>
+
+        <table class="tbl">
+          <thead><tr><th>Clase</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>.section</code></td><td>Base, padding 120px 32px</td></tr>
+            <tr><td><code>.section--features</code></td><td>Grid de 4 columnas con beneficios (con foto + check list)</td></tr>
+            <tr><td><code>.section--studio</code></td><td>Sección de renta + membresías</td></tr>
+            <tr><td><code>.section--cowork</code></td><td>Sección de packs de co-work</td></tr>
+            <tr><td><code>.section--community</code></td><td>Sección de comunidad / miembros</td></tr>
+            <tr><td><code>.force-light</code></td><td>Override fondo blanco + texto negro</td></tr>
+            <tr><td><code>.force-dark</code></td><td>Override fondo negro + texto blanco</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="eh">Page-hero</h3>
+        <p style="font-family: var(--font-body); font-size: 14px; font-weight: 300; max-width: 65ch;">
+          Hero con imagen de fondo + overlay oscuro. Si va seguida de una sección <code>.force-light</code>, agrega gradiente blanco al pie automáticamente.
+        </p>
+        <table class="tbl">
+          <thead><tr><th>Propiedad</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>min-height</td><td>60vh</td></tr>
+            <tr><td>padding</td><td>calc(pad-y + 24px) 32px 80px</td></tr>
+            <tr><td>overlay</td><td>linear-gradient negro de 0.35 a 0.95</td></tr>
+            <tr><td>fade-out blanco (cuando sigue force-light)</td><td>170px de altura, padding-bottom 320px</td></tr>
+            <tr><td>título</td><td>section__title con --text-h2</td></tr>
+            <tr><td>subtítulo (.page-hero__sub)</td><td>16px · weight 300 · uppercase · letter-spacing 0.12em · opacity 0.7</td></tr>
+          </tbody>
+        </table>
+
+        <div class="notes-box">
+          <h4>Notas Lili</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+      <!-- 07 Componentes -->
+      <section id="componentes">
+        <h2>07 · Componentes</h2>
+
+        <h3 class="eh">Feature card (.feature)</h3>
+        <p style="font-family: var(--font-body); font-size: 14px; font-weight: 300; max-width: 60ch; margin-bottom: 16px;">
+          4 columnas en desktop, 2 en tablet, 1 en mobile. Foto cuadrada + título uppercase + lista con check.
+        </p>
+        <div class="demo-feat">
+          <div class="demo-feat__media"></div>
+          <h4>Infinito y cicloramas</h4>
+          <ul>
+            <li>Infinito blanco 6x6x3m</li>
+            <li>Ciclorama negro y nude 2.80m</li>
+          </ul>
+        </div>
+
+        <h3 class="eh" style="margin-top: 48px;">Plan card (.plan)</h3>
+        <p style="font-family: var(--font-body); font-size: 14px; font-weight: 300; max-width: 60ch; margin-bottom: 16px;">
+          Card con borde redondo. Para membresías de estudio (con precio) o packs de co-work (sin precio, con "Aplicar").
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div class="demo-plan">
+            <h4>Starter</h4>
+            <p>4 hrs / mes</p>
+            <p class="price">$2,400</p>
+            <ul>
+              <li>Acceso al estudio</li>
+              <li>Reserva con 24h</li>
+              <li>Membresía District Club</li>
+            </ul>
+          </div>
+          <div class="demo-plan">
+            <h4>Pack Individual</h4>
+            <ul>
+              <li>1 lugar asignado</li>
+              <li>Almacenaje privado</li>
+              <li>Wifi de alta velocidad</li>
+              <li>L a V de 9am a 9pm</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="eh" style="margin-top: 48px;">Rates table (.rates / .rate)</h3>
+        <p style="font-family: var(--font-body); font-size: 14px; font-weight: 300; max-width: 60ch; margin-bottom: 16px;">
+          Tabla de precios simple. Borde inferior por fila. Modifier <code>.rates--right</code> la alinea a la derecha de su contenedor.
+        </p>
+        <div style="max-width: 520px;">
+          <ul style="display: flex; flex-direction: column; gap: 14px;">
+            <li style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-family: var(--font-body); font-weight: 300;"><span style="opacity: 0.75; font-size: 14px;">1 hora</span><span style="font-weight: 700; font-family: var(--font-display); font-size: 18px;">$800</span></li>
+            <li style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-family: var(--font-body); font-weight: 300;"><span style="opacity: 0.75; font-size: 14px;">½ día (4 hrs)</span><span style="font-weight: 700; font-family: var(--font-display); font-size: 18px;">$2,800</span></li>
+            <li style="display: flex; justify-content: space-between; padding: 14px 0; font-family: var(--font-body); font-weight: 300;"><span style="opacity: 0.75; font-size: 14px;">Día completo (8 hrs)</span><span style="font-weight: 700; font-family: var(--font-display); font-size: 18px;">$4,800</span></li>
+          </ul>
+        </div>
+
+        <h3 class="eh" style="margin-top: 48px;">Label / etiqueta</h3>
+        <p style="font-family: var(--font-body); font-size: 14px; font-weight: 300; max-width: 60ch; margin-bottom: 16px;">
+          Caption en mayúsculas con corchetes. Uso: anuncia la sección.
+        </p>
+        <p class="demo-micro">[ Co-work Creativo ]</p>
+
+        <div class="notes-box">
+          <h4>Notas Lili</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+      <!-- 08 Movimientos -->
+      <section id="movimientos">
+        <h2>08 · Movimientos</h2>
+        <p class="lead">Animaciones suaves con Lenis para scroll y CSS transitions para hover/reveal.</p>
+
+        <table class="tbl">
+          <thead><tr><th>Token</th><th>Valor</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>--ease</code></td><td>cubic-bezier(0.22, 1, 0.36, 1)</td><td>Ease-out suave para todo</td></tr>
+            <tr><td><code>--dur</code></td><td>720ms</td><td>Duración default de transitions largas</td></tr>
+            <tr><td>data-reveal</td><td>0 → 1 opacity + translateY(24px) → 0</td><td>Elementos que aparecen al hacer scroll</td></tr>
+            <tr><td>hover botón</td><td>240ms ease</td><td>Cambio de color/transform</td></tr>
+            <tr><td>hover imagen feature</td><td>scale(1.03), 720ms ease</td><td>Zoom suave</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 09 Notas -->
+      <section id="notas">
+        <h2>09 · Notas y pendientes</h2>
+        <p class="lead">Espacio para llevar registro de decisiones, dudas y pendientes generales del sistema.</p>
+
+        <h3 class="eh">Decisiones tomadas</h3>
+        <ul style="font-family: var(--font-body); font-size: 14px; font-weight: 300; line-height: 1.7; padding-left: 20px; list-style: disc;">
+          <li>Todo el cuerpo de texto va en peso 300 (thin)</li>
+          <li>Títulos siempre en uppercase, Aileron Heavy</li>
+          <li>Botones siempre con pill radius (999px)</li>
+          <li>Hero con overlay negro y fade blanco si la siguiente sección es force-light</li>
+          <li>"Renta por hora" alineado a la izquierda + tabla de precios a la derecha</li>
+        </ul>
+
+        <h3 class="eh" style="margin-top: 32px;">Pendientes <span class="badge badge--todo">TODO</span></h3>
+        <ul style="font-family: var(--font-body); font-size: 14px; font-weight: 300; line-height: 1.7; padding-left: 20px; list-style: disc;">
+          <li>Aplicar page-hero a comunidad.html</li>
+          <li>Reemplazar placeholders de miembros con datos reales</li>
+          <li>Pasar la guía a producción / deploy a Cloudflare</li>
+        </ul>
+
+        <div class="notes-box">
+          <h4>Notas Lili (libres)</h4>
+          <p>· (espacio para anotaciones)</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

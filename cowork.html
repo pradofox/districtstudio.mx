@@ -47,6 +47,8 @@
   <nav class="nav__links" aria-label="Primaria">
     <a href="/estudio.html">Estudio</a>
     <a href="/cowork.html" aria-current="page">Co-work</a>
+    <a href="/club.html">Club</a>
+    <a href="/tienda.html">Tienda</a>
     <a href="/comunidad.html">Comunidad</a>
     <a href="/#contacto">Contacto</a>
   </nav>
@@ -62,6 +64,8 @@
   <nav class="menu-overlay__links" aria-label="Menú principal">
     <a href="/estudio.html" data-menu-link>Estudio</a>
     <a href="/cowork.html" data-menu-link>Co-work</a>
+    <a href="/club.html" data-menu-link>Club</a>
+    <a href="/tienda.html" data-menu-link>Tienda</a>
     <a href="/comunidad.html" data-menu-link>Comunidad</a>
     <a href="/#contacto" data-menu-link>Contacto</a>
   </nav>
@@ -73,7 +77,7 @@
 
 <main id="top" class="page">
 
-<header class="page-hero force-dark" style="background-image: url('assets/images/spaces/detail.jpg');">
+<header class="page-hero force-dark" style="background-image: url('assets/images/spaces/foto.jpg');">
   <div class="page-hero__inner">
     <p class="label label--invert" data-reveal>[ Co-work Creativo ]</p>
     <h1 class="section__title" data-reveal>Más que un co-work,<br/>somos una comunidad.</h1>
@@ -84,35 +88,72 @@
 </header>
 
 <section class="section section--cowork force-dark" id="cowork">
-  <h4 class="sub" data-reveal>Paquetes disponibles</h4>
+  <h3 class="section__h3" data-reveal>A quién buscamos</h3>
+  <div class="profiles">
+    <article class="profile" data-reveal>
+      <h4 class="profile__title">Emprendedores de industrias creativas</h4>
+      <p class="profile__desc">Diseñadores, arquitectos, mercadólogos, curadores, stylists y escritores que busquen elevar su estándar de trabajo. Profesionales que valoran un entorno que aporte orden, estructura y motivación.</p>
+      <a href="#paquetes" class="profile__link">Ver precio →</a>
+    </article>
+    <article class="profile" data-reveal>
+      <h4 class="profile__title">Artistas con prácticas de bajo impacto</h4>
+      <p class="profile__desc">Artistas plásticos con enfoque en pintura, dibujo o escultura blanda, con procesos que permitan una convivencia armónica, libre de ruidos o residuos que interrumpan la dinámica del resto.</p>
+      <a href="#residencias" class="profile__link">Ver precio →</a>
+    </article>
+    <article class="profile" data-reveal>
+      <h4 class="profile__title">Perfiles orientados a la collaboración</h4>
+      <p class="profile__desc">Personas que disfruten el trabajo compartido y que tengan la visión de cómo su carrera puede crecer al integrarse a una red de apoyo mutuo y networking estratégico.</p>
+    </article>
+  </div>
+
+  <h3 class="section__h3" id="paquetes" data-reveal>Paquetes disponibles</h3>
+  <p class="body" data-reveal>Contamos con espacios para desde un freelancer individual hasta equipos pequeños de entre dos y tres personas. Busca cuál se adapta más a tu proyecto y manda tu aplicación.</p>
   <div class="plans plans--cw">
     <article class="plan" data-reveal data-cursor="Aplicar">
-      <h4 class="plan__name">Pack I</h4>
+      <h4 class="plan__name">Pack Individual</h4>
+      <p class="plan__hours">1 lugar · mensual</p>
+      <p class="plan__price">$4,500</p>
       <ul class="plan__feat">
-        <li>Acceso a zonas comunes</li>
-        <li>Reserva con 24h</li>
+        <li>1 lugar asignado en escritorio compartido</li>
+        <li>Almacenaje privado</li>
+        <li>Wifi de alta velocidad</li>
+        <li>Cocineta con agua</li>
+        <li>Lunes a Viernes, 9am a 9pm</li>
       </ul>
     </article>
     <article class="plan plan--hl" data-reveal data-cursor="Aplicar">
-      <h4 class="plan__name">Pack II</h4>
+      <h4 class="plan__name">Pack Pareja</h4>
+      <p class="plan__hours">2 lugares · mensual</p>
+      <p class="plan__price">$7,500</p>
       <ul class="plan__feat">
-        <li>Acceso a zonas comunes</li>
+        <li>2 lugares asignados en escritorio compartido</li>
         <li>Almacenaje privado</li>
-        <li>Reserva prioritaria</li>
+        <li>Wifi de alta velocidad</li>
+        <li>Cocineta con agua</li>
+        <li>Lunes a Viernes, 9am a 9pm</li>
       </ul>
     </article>
     <article class="plan" data-reveal data-cursor="Aplicar">
-      <h4 class="plan__name">Pack III</h4>
+      <h4 class="plan__name">Pack Equipo</h4>
+      <p class="plan__hours">3 lugares · mensual</p>
+      <p class="plan__price">$10,500</p>
       <ul class="plan__feat">
-        <li>Estación asignada</li>
+        <li>3 lugares asignados en escritorio compartido</li>
         <li>Almacenaje privado</li>
-        <li>Booking preferente</li>
+        <li>Wifi de alta velocidad</li>
+        <li>Cocineta con agua</li>
+        <li>Lunes a Viernes, 9am a 9pm</li>
       </ul>
     </article>
   </div>
-  <p class="plans__foot" data-reveal>Tarifas y condiciones compartidas al aplicar.</p>
+  <p class="plans__foot" data-reveal>Precios en MXN. No incluyen IVA. Entrada por aplicación.</p>
 
-  <h4 class="sub" data-reveal>Beneficios de pertenecer</h4>
+  <div class="book__cta" data-reveal>
+    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20me%20interesa%20aplicar%20al%20co-work" class="btn btn--ghost" target="_blank" rel="noopener">Aplica al co-work</a>
+    <a href="mailto:contacto@fcagency.mx?subject=Aplicaci%C3%B3n%20Co-work%20District%20Studio" class="btn btn--text">o escríbenos por email</a>
+  </div>
+
+  <h3 class="section__h3" data-reveal>Beneficios de pertenecer</h3>
   <div class="benefits">
     <div class="benefit" data-reveal>
       <h5 class="benefit__title">Un espacio propio</h5>
@@ -148,6 +189,40 @@
   <div class="book__cta" data-reveal>
     <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20me%20interesa%20aplicar%20al%20co-work" class="btn btn--ghost" target="_blank" rel="noopener">Aplica al co-work</a>
     <a href="mailto:contacto@fcagency.mx?subject=Aplicaci%C3%B3n%20Co-work%20District%20Studio" class="btn btn--text">o escríbenos por email</a>
+  </div>
+
+  <h3 class="section__h3" id="residencias" data-reveal>Residencias artísticas</h3>
+  <div class="residency">
+    <div class="residency__media" data-reveal>
+      <img src="assets/images/spaces/detail.jpg" alt="Residencia artística" loading="lazy" />
+    </div>
+    <div class="residency__info" data-reveal>
+      <p class="label label--invert">[ Booth individual ]</p>
+      <article class="plan plan--hl">
+        <h4 class="plan__name">Aula individual</h4>
+        <p class="plan__price">$4,000</p>
+        <ul class="plan__feat">
+          <li>Mensual</li>
+          <li>Espacio de 3x4 m²</li>
+          <li>Espacio climatizado con luz personal</li>
+          <li>Wifi de alta velocidad</li>
+          <li>Cocineta compartida</li>
+          <li>Lunes a viernes, de 12pm a 7pm</li>
+        </ul>
+      </article>
+      <div class="residency__commission">
+        <p class="residency__label">Comisión sobre venta de obra</p>
+        <ul>
+          <li>50% / 50% District</li>
+          <li>Venta de obra dentro de District Studio</li>
+          <li>Pase a los eventos de la comunidad</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="book__cta" data-reveal>
+    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20me%20interesa%20aplicar%20a%20la%20residencia%20art%C3%ADstica" class="btn btn--ghost" target="_blank" rel="noopener">Aplica a la residencia</a>
   </div>
 </section>
 

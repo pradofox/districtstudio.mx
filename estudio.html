@@ -49,6 +49,8 @@
   <nav class="nav__links" aria-label="Primaria">
     <a href="/estudio.html" aria-current="page">Estudio</a>
     <a href="/cowork.html">Co-work</a>
+    <a href="/club.html">Club</a>
+    <a href="/tienda.html">Tienda</a>
     <a href="/comunidad.html">Comunidad</a>
     <a href="/#contacto">Contacto</a>
   </nav>
@@ -66,6 +68,8 @@
   <nav class="menu-overlay__links" aria-label="Menú principal">
     <a href="/estudio.html" data-menu-link>Estudio</a>
     <a href="/cowork.html" data-menu-link>Co-work</a>
+    <a href="/club.html" data-menu-link>Club</a>
+    <a href="/tienda.html" data-menu-link>Tienda</a>
     <a href="/comunidad.html" data-menu-link>Comunidad</a>
     <a href="/#contacto" data-menu-link>Contacto</a>
   </nav>
@@ -77,20 +81,72 @@
 
 <main id="top" class="page">
 
-<section class="section section--studio force-light" id="estudio">
-  <div class="section__head">
-    <p class="label" data-reveal>[ Estudio de Foto y Video ]</p>
-    <h2 class="section__title" data-reveal>El estudio fotográfico<br/>más completo de Monterrey</h2>
-    <p class="section__sub" data-reveal>Renta</p>
+<header class="page-hero force-dark" style="background-image: url('assets/images/spaces/foto.jpg');">
+  <div class="page-hero__inner">
+    <p class="label label--invert" data-reveal>[ Estudio de Foto y Video ]</p>
+    <h1 class="section__title" data-reveal>El estudio<br/>más completo de Monterrey</h1>
+    <p class="page-hero__sub" data-reveal>Empieza a subir tu calidad de producción</p>
   </div>
-  <div class="section__body">
-    <p class="lede" data-reveal>
-      Equipamos un estudio de 300 m² en el que puedes encontrar infinito blanco, cicloramas de colores variados, estaciones de maquillaje con conexión a luz, vestidores, baños, cocineta para catering y diversos accesorios y equipo de luz, siempre acompañado con un asistente operativo en piso para hacer tu producción lo más cómodo posible.
-    </p>
-  </div>
+</header>
 
-  <h4 class="sub" data-reveal>Renta directa</h4>
-  <div class="rates rates--single">
+<section class="section section--features force-light">
+  <h3 class="section__h3" data-reveal>Todo para tu producción</h3>
+  <p class="body" data-reveal>
+    Un estudio de 300 m² totalmente equipado con infinito blanco, cicloramas de colores, equipo de iluminación y todas las amenidades necesarias. Todo respaldado por asistencia operativa en piso para garantizar el éxito y la comodidad de tu producción.
+  </p>
+  <div class="features">
+    <article class="feature" data-reveal>
+      <div class="feature__media">
+        <img src="assets/images/spaces/podcast.jpg" alt="Infinito y cicloramas" loading="lazy" />
+      </div>
+      <h4 class="feature__title">Infinito y cicloramas</h4>
+      <ul class="feature__list">
+        <li>Infinito blanco 6x6x3m</li>
+        <li>Ciclorama negro y nude de 2.80m</li>
+      </ul>
+    </article>
+    <article class="feature" data-reveal>
+      <div class="feature__media">
+        <img src="assets/images/spaces/foto.jpg" alt="Iluminación profesional" loading="lazy" />
+      </div>
+      <h4 class="feature__title">Iluminación profesional</h4>
+      <ul class="feature__list">
+        <li>2 Softbox Rectangulares</li>
+        <li>2 Softbox Hexagonales</li>
+        <li>1 Softbox Parabólica de 95cm</li>
+        <li>2 Flashes Newer 300W</li>
+        <li>1 Luz continua de 120W</li>
+      </ul>
+    </article>
+    <article class="feature" data-reveal>
+      <div class="feature__media">
+        <img src="assets/images/spaces/detail.jpg" alt="Zona de preparación" loading="lazy" />
+      </div>
+      <h4 class="feature__title">Zona de preparación</h4>
+      <ul class="feature__list">
+        <li>Maquillaje y peinado</li>
+        <li>Vestidor</li>
+        <li>Cocineta</li>
+      </ul>
+    </article>
+    <article class="feature" data-reveal>
+      <div class="feature__media">
+        <img src="assets/images/spaces/eventos.jpg" alt="Beneficios extras" loading="lazy" />
+      </div>
+      <h4 class="feature__title">Beneficios extras sin costo</h4>
+      <ul class="feature__list">
+        <li>Técnico siempre presente</li>
+        <li>WiFi de alta velocidad</li>
+        <li>Estacionamiento</li>
+        <li>Zona de estancia</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="section section--studio force-light" id="estudio">
+  <h3 class="section__h3" data-reveal>Renta por hora</h3>
+  <div class="rates rates--single rates--right">
     <div class="rate" data-reveal>
       <ul>
         <li><span>1 hora</span><span>$800</span></li>
@@ -101,7 +157,12 @@
     </div>
   </div>
 
-  <h4 class="sub" data-reveal>Membresías de estudio</h4>
+  <div class="book__cta book__cta--right" data-reveal>
+    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20quiero%20reservar%20el%20estudio%20de%20foto%20y%20video" class="btn btn--ghost" target="_blank" rel="noopener">Reservar estudio</a>
+  </div>
+
+  <h3 class="section__h3" data-reveal>Membresías de estudio</h3>
+  <p class="body" data-reveal>Si trabajas múltiples horas de producción al mes podría servirte contratar alguna de nuestras membresías mensuales de District Estudio.</p>
   <div class="plans">
     <article class="plan" data-reveal data-cursor="Reservar">
       <h4 class="plan__name">Starter</h4>
@@ -110,6 +171,7 @@
       <ul class="plan__feat">
         <li>Acceso al estudio</li>
         <li>Reserva con 24h</li>
+        <li>Aplicación gratis a Membresía District Club</li>
       </ul>
     </article>
     <article class="plan" data-reveal data-cursor="Reservar">
@@ -119,6 +181,7 @@
       <ul class="plan__feat">
         <li>Acceso al estudio</li>
         <li>Reserva prioritaria</li>
+        <li>Aplicación gratis a Membresía District Club</li>
       </ul>
     </article>
     <article class="plan plan--hl" data-reveal data-cursor="Reservar">
@@ -128,6 +191,7 @@
       <ul class="plan__feat">
         <li>Booking preferente</li>
         <li>Descuento en rentas extra</li>
+        <li>Aplicación gratis a Membresía District Club</li>
       </ul>
     </article>
     <article class="plan" data-reveal data-cursor="Reservar">
@@ -137,21 +201,27 @@
       <ul class="plan__feat">
         <li>Compartible entre miembros</li>
         <li>Facturación mensual</li>
+        <li>Aplicación gratis a Membresía District Club</li>
       </ul>
     </article>
   </div>
+  <p class="plans__foot" data-reveal>Todos los planes incluyen la aplicación gratis a la Membresía District Club, sujeta a aprobación del equipo. La Membresía District Club es una sola y da acceso a eventos exclusivos de la comunidad, biblioteca interna y zonas comunes.</p>
 
   <div class="book__cta" data-reveal>
-    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20quiero%20reservar%20el%20estudio%20de%20foto%20y%20video" class="btn btn--ghost" target="_blank" rel="noopener">Reservar estudio</a>
+    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20quiero%20obtener%20una%20membres%C3%ADa%20del%20estudio" class="btn btn--ghost" target="_blank" rel="noopener">Obtener membresía</a>
   </div>
 
-  <h4 class="sub" data-reveal>Cómo reservar</h4>
+  <h3 class="section__h3" data-reveal>Cómo reservar</h3>
   <ol class="steps">
     <li data-reveal><span class="steps__n">01</span><p>Elige el horario que necesitas.</p></li>
     <li data-reveal><span class="steps__n">02</span><p>Confirmamos disponibilidad por WhatsApp el mismo día.</p></li>
     <li data-reveal><span class="steps__n">03</span><p>Apartas con anticipo vía transferencia o link de pago.</p></li>
     <li data-reveal><span class="steps__n">04</span><p>Te recibimos en District el día acordado.</p></li>
   </ol>
+
+  <div class="book__cta" data-reveal>
+    <a href="https://wa.me/528120743501?text=Hola%20District%20Studio%2C%20quiero%20reservar%20el%20estudio%20de%20foto%20y%20video" class="btn btn--ghost" target="_blank" rel="noopener">Reservar estudio</a>
+  </div>
 </section>
 
 <!-- Footer =============================================== -->
