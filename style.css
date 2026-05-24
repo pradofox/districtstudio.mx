@@ -352,6 +352,49 @@ body.menu-open .menu-overlay {
   z-index: 2;
 }
 
+/* -- Page hero (con bg image) -------------------------------- */
+.page-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--pad-y) + 24px) var(--pad-x) var(--pad-y);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 65%, rgba(0,0,0,0.95) 100%);
+  pointer-events: none;
+}
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  width: 100%;
+}
+.page-hero .label {
+  margin-bottom: 32px;
+}
+.page-hero .section__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(32px, 5.5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-transform: uppercase;
+}
+.page-hero .lede {
+  margin: 32px 0 0;
+  max-width: 52ch;
+  opacity: 0.92;
+}
+
 /* -- Sections ----------------------------------------------- */
 .section {
   padding: var(--pad-y) var(--pad-x);
