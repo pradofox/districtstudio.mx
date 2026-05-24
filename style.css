@@ -118,9 +118,20 @@ html.lenis { height: auto; }
 .lede {
   font-family: var(--font-body);
   font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 300;
   line-height: 1.35;
   max-width: 34ch;
   margin: 0 0 28px;
+}
+
+.section__intro {
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 52ch;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .muted { color: var(--muted); }
@@ -434,6 +445,8 @@ body.menu-open .menu-overlay {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: border-color 320ms var(--ease), transform 320ms var(--ease);
+  text-decoration: none;
+  color: inherit;
 }
 .space:hover {
   border-color: rgba(255, 255, 255, 0.38);
