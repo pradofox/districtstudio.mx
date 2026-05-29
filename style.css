@@ -760,25 +760,25 @@ body.menu-open .menu-overlay {
 }
 
 /* Plan layout horizontal (info en columna izquierda, detalles en derecha) */
-.plan--horiz {
+.plan.plan--horiz {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   padding: 40px;
 }
-.plan--horiz .plan__main,
-.plan--horiz .plan__details {
+.plan.plan--horiz .plan__main,
+.plan.plan--horiz .plan__details {
   display: flex;
   flex-direction: column;
   gap: var(--stack-sm);
   min-width: 0;
 }
-.plan--horiz .plan__feat {
+.plan.plan--horiz .plan__feat {
   margin-top: 0;
   padding-top: 0;
   border-top: 0;
 }
-.plan--horiz .plan__soon { margin-top: auto; }
+.plan.plan--horiz .plan__soon { margin-top: auto; }
 .plan__note {
   font-family: var(--font-body);
   font-size: var(--text-small);
@@ -790,17 +790,17 @@ body.menu-open .menu-overlay {
   opacity: 0.65;
   max-width: 36ch;
 }
-@media (max-width: 760px) {
-  .plan--horiz {
+@media (max-width: 600px) {
+  .plan.plan--horiz {
     grid-template-columns: 1fr;
     gap: 28px;
     padding: 32px 24px;
   }
-  .plan--horiz .plan__feat {
+  .plan.plan--horiz .plan__feat {
     padding-top: 16px;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
-  .force-dark .plan--horiz .plan__feat { border-top-color: rgba(255, 255, 255, 0.12); }
+  .force-dark .plan.plan--horiz .plan__feat { border-top-color: rgba(255, 255, 255, 0.12); }
 }
 .plan {
   position: relative;
@@ -877,8 +877,8 @@ body.menu-open .menu-overlay {
   text-transform: uppercase;
   opacity: 0.55;
 }
-@media (max-width: 960px) { .plans, .plans--cw { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .plans, .plans--cw { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .plans, .plans--cw { grid-template-columns: repeat(2, 1fr); } .plans.plans--single, .plans.plans--wide { grid-template-columns: minmax(0, 920px); } }
+@media (max-width: 520px) { .plans, .plans--cw { grid-template-columns: 1fr; } .plans.plans--single, .plans.plans--wide { grid-template-columns: 1fr; } }
 
 /* -- Space deep-dive (Estudio + Co-work) -------------------- */
 .space-deep {
