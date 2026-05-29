@@ -206,6 +206,10 @@ html.lenis { height: auto; }
   letter-spacing: 0.04em;
 }
 .nav__links a:hover { opacity: 0.6; }
+
+/* Coming-soon nav links: transparency, click disabled, cursor preview en hover */
+.nav__link--soon { opacity: 0.4; cursor: not-allowed; }
+.nav__links a.nav__link--soon:hover { opacity: 0.6; }
 .nav__actions {
   display: flex;
   align-items: center;
@@ -594,6 +598,26 @@ body.menu-open .menu-overlay {
   transition: transform 720ms var(--ease);
 }
 .space:hover .space__media img { transform: scale(1.04); }
+
+/* Space coming-soon variant */
+.space--soon { opacity: 0.6; }
+.space--soon:hover .space__media img { transform: none; }
+.space__soon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(20px, 2.6vw, 36px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
 .space__body {
   padding: 32px 28px 36px;
   display: flex;
@@ -952,6 +976,7 @@ body.menu-open .menu-overlay {
   gap: var(--stack-sm);
 }
 .feature__media {
+  position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #111;
@@ -964,6 +989,26 @@ body.menu-open .menu-overlay {
   transition: transform 720ms var(--ease);
 }
 .feature:hover .feature__media img { transform: scale(1.03); }
+
+/* Feature coming-soon variant */
+.feature--soon { opacity: 0.6; }
+.feature--soon:hover .feature__media img { transform: none; }
+.feature__soon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(16px, 2vw, 24px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
 .feature__title {
   font-family: var(--font-display);
   font-weight: 900;
