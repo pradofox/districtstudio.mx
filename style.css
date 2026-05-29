@@ -599,24 +599,41 @@ body.menu-open .menu-overlay {
 }
 .space:hover .space__media img { transform: scale(1.04); }
 
-/* Space coming-soon variant */
-.space--soon { opacity: 0.6; }
+/* Space coming-soon variant (dim media + body, marquee a opacidad llena) */
+.space--soon .space__media img,
+.space--soon .space__body { opacity: 0.6; }
 .space--soon:hover .space__media img { transform: none; }
-.space__soon {
+
+/* Soon-marquee: banda horizontal animada sobre la imagen */
+.soon-marquee {
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+  padding: 14px 0;
+  background: rgba(0, 0, 0, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 2;
+  pointer-events: none;
+}
+.soon-marquee__track {
+  display: flex;
+  gap: 28px;
+  white-space: nowrap;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(20px, 2.6vw, 36px);
-  letter-spacing: 0.04em;
+  font-size: clamp(18px, 2.4vw, 32px);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--white);
-  white-space: nowrap;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
-  pointer-events: none;
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .soon-marquee__track { animation: none; }
 }
 .space__body {
   padding: 32px 28px 36px;
@@ -732,6 +749,7 @@ body.menu-open .menu-overlay {
 }
 .plans--cw { grid-template-columns: repeat(3, 1fr); }
 .plan {
+  position: relative;
   padding: 28px;
   border: 1px solid currentColor;
   border-color: color-mix(in srgb, currentColor 18%, transparent);
@@ -740,6 +758,7 @@ body.menu-open .menu-overlay {
   flex-direction: column;
   gap: var(--stack-sm);
   min-height: 240px;
+  overflow: hidden;
   transition: background 320ms var(--ease), border-color 320ms var(--ease), transform 320ms var(--ease);
 }
 .plan:hover {
@@ -990,24 +1009,80 @@ body.menu-open .menu-overlay {
 }
 .feature:hover .feature__media img { transform: scale(1.03); }
 
-/* Feature coming-soon variant */
-.feature--soon { opacity: 0.6; }
+/* Feature coming-soon variant (dim media + title/list, marquee a opacidad llena) */
+.feature--soon .feature__media img,
+.feature--soon .feature__title,
+.feature--soon .feature__list { opacity: 0.6; }
 .feature--soon:hover .feature__media img { transform: none; }
-.feature__soon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(16px, 2vw, 24px);
+
+/* Plan pilot variant (programa piloto con descuentos) */
+.plan--pilot .plan__badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+.plan__price-old {
+  display: inline-block;
+  font-size: 0.55em;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  opacity: 0.45;
+  text-decoration: line-through;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.plan__price small {
+  font-family: var(--font-body);
+  font-size: 0.32em;
+  font-weight: 300;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--white);
-  white-space: nowrap;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
-  pointer-events: none;
+  opacity: 0.6;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.plan__soon {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 300;
+  line-height: var(--lh-relaxed);
+  letter-spacing: 0.02em;
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed color-mix(in srgb, currentColor 18%, transparent);
+  opacity: 0.55;
+}
+
+/* En cards de programa piloto: features fluyen natural, próximamente abajo */
+.plan--pilot .plan__feat { margin-top: 12px; }
+.plan--pilot .plan__soon { margin-top: auto; }
+
+/* Plan coming-soon variant (dim contenido, marquee a opacidad llena) */
+.plan--soon .plan__name,
+.plan--soon .plan__hours,
+.plan--soon .plan__price,
+.plan--soon .plan__feat { opacity: 0.6; }
+.plan--soon:hover {
+  background: inherit;
+  border-color: color-mix(in srgb, currentColor 18%, transparent);
+  transform: none;
+}
+.soon-marquee--plan {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 0;
+}
+.soon-marquee--plan .soon-marquee__track {
+  font-size: clamp(14px, 1.4vw, 18px);
+  gap: 20px;
 }
 .feature__title {
   font-family: var(--font-display);
