@@ -406,7 +406,8 @@ body.menu-open .menu-overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 110px, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.75) 65%, rgba(0,0,0,0.95) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0.78) 0px, rgba(0,0,0,0.45) 100px, rgba(0,0,0,0.0) 180px),
+    linear-gradient(180deg, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.75) 65%, rgba(0,0,0,0.95) 100%);
   pointer-events: none;
 }
 /* Fade hacia el color de la siguiente sección (light o dark).
